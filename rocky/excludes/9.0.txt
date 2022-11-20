@@ -1,0 +1,22 @@
+# Ignore debug packages
+*/debug/
+
+# Ignore architectures we don't want
+*/aarch64/
+*/i686/
+*/ppc64le/
+*/s390x/
+*/source/
+
+# Ignore any images
+images/
+isos/
+live/
+
+# Ignore repos we don't use
+HighAvailability/
+NFV/
+RT/
+ResilientStorage/
+SAP/
+SAPHANA/
