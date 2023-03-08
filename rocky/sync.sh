@@ -22,7 +22,7 @@ readonly MIRROR_URL="${MIRROR_URL:-rsync://ord.mirror.rackspace.com/rocky}"
 readonly OUTPUT_DIR="${OUTPUT_DIR:-/var/www/html/mirror/rocky}"
 
 readonly REPOKEY="RPM-GPG-KEY-rockyofficial"
-readonly RELEASES=( "9.0" )
+readonly RELEASES=( "9.0" "9.1" )
 
 source "${DIR}/../util.sh"
 
