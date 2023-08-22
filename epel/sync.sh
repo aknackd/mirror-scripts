@@ -14,7 +14,7 @@
 #############################################################
 
 readonly DIR="$(dirname "${BASH_SOURCE[0]}")"
-readonly LOCKFILE="${DIR}/lock"
+readonly LOCKFILE="${DIR}/mirror.lock"
 
 readonly BWLIMIT="${BWLIMIT:-256K}"
 readonly DRYRUN="${DRYRUN:-0}"
@@ -37,7 +37,7 @@ function implode { local IFS="$1"; shift; echo "$*"; }
 
 function onerror () {
 	log_info "Caught SIGINT...removing lockfile and exiting"
-	
+
 	[[ -f "$LOCKFILE" ]] && rm -f "$LOCKFILE"
 
 	exit 1

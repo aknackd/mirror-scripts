@@ -14,7 +14,7 @@
 #############################################################
 
 readonly DIR="$(dirname "${BASH_SOURCE[0]}")"
-readonly LOCKFILE="${DIR}/lock"
+readonly LOCKFILE="${DIR}/mirror.lock"
 
 readonly BWLIMIT="${BWLIMIT:-256K}"
 readonly DRYRUN="${DRYRUN:-0}"
