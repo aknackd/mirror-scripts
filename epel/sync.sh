@@ -89,9 +89,11 @@ function sync_release () {
     log_info "Sync complete!"
 }
 
-trap "onerror" SIGINT SIGTERM
+trap "onerror" SIGINT SIGTERM EXIT
 
 touch "$LOCKFILE"
+
+set -m
 
 # Sync each release and its corresponding GPG key
 for RELEASE in "${RELEASES[@]}"; do
