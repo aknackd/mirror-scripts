@@ -22,7 +22,7 @@ readonly MIRROR_URL="${MIRROR_URL:-rsync://ord.mirror.rackspace.com/rocky}"
 readonly OUTPUT_DIR="${OUTPUT_DIR:-/var/www/html/mirror/rocky}"
 
 readonly REPOKEY="RPM-GPG-KEY-rockyofficial"
-readonly RELEASES=( "9.0" "9.1" )
+readonly RELEASES=( "9.0" "9.1" "9.2" )
 
 source "${DIR}/../util.sh"
 
@@ -76,3 +76,10 @@ done
 log_info "Finished!"
 
 rm -f "$LOCKFILE"
+
+# Permit HTTP access if SELinux is being enforced (otherwise
+# the mirror cannot be used)
+
+if [[ "$(getenforce)" == "Enforcing" ]]; then
+    chcon -Rt httpd_sys_content_t "$OUTPUT_DIR"
+fi
